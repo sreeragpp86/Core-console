@@ -1,14 +1,65 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring, useVelocity } from "framer-motion";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { BackgroundCanvas } from "@/components/ui/BackgroundCanvas";
 import { Github, Linkedin, Instagram, Mail, ExternalLink, Cpu, Code2, Rocket, Globe } from "lucide-react";
 
 export default function Home() {
+  const bentoRef = useRef<HTMLElement>(null);
+  const { scrollYProgress, scrollY } = useScroll({
+    target: bentoRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Smooth scroll progression spring for organic inertia based on scroll speed
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 110,
+    damping: 24,
+    restDelta: 0.001,
+  });
+
+  // Track scroll velocity for speed-dependent glide displacement and subtle tilt
+  const scrollVelocity = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocity, { stiffness: 220, damping: 28 });
+  const velocityOffset = useTransform(smoothVelocity, [-2500, 0, 2500], [-32, 0, 32]);
+  const velocityTilt = useTransform(smoothVelocity, [-2500, 0, 2500], [-2, 0, 2]);
+
+  // Section Header glide transforms (glide in from bottom, glide away to top)
+  const yTitleProgress = useTransform(smoothProgress, [0.02, 0.22, 0.70, 0.96], [45, 0, 0, -45]);
+  const yTitle = useTransform([yTitleProgress, velocityOffset], (values: number[]) => values[0] + values[1] * 0.4);
+  const opacityTitle = useTransform(smoothProgress, [0.02, 0.20, 0.72, 0.96], [0, 1, 1, 0]);
+
+  // Tile 1: Bio Tile (2x2, anchor)
+  const yBioProgress = useTransform(smoothProgress, [0.03, 0.25, 0.65, 0.95], [75, 0, 0, -85]);
+  const yBio = useTransform([yBioProgress, velocityOffset], (values: number[]) => values[0] + values[1] * 0.7);
+  const xBio = useTransform(smoothProgress, [0.03, 0.25, 0.65, 0.95], [-20, 0, 0, -30]);
+  const opacityBio = useTransform(smoothProgress, [0.03, 0.22, 0.68, 0.95], [0, 1, 1, 0]);
+  const scaleBio = useTransform(smoothProgress, [0.03, 0.25, 0.65, 0.95], [0.96, 1, 1, 0.96]);
+
+  // Tile 2: Tech Stack (1x1, top right)
+  const yStackProgress = useTransform(smoothProgress, [0.05, 0.27, 0.63, 0.95], [85, 0, 0, -110]);
+  const yStack = useTransform([yStackProgress, velocityOffset], (values: number[]) => values[0] + values[1] * 0.9);
+  const xStack = useTransform(smoothProgress, [0.05, 0.27, 0.63, 0.95], [20, 0, 0, 30]);
+  const opacityStack = useTransform(smoothProgress, [0.05, 0.24, 0.66, 0.95], [0, 1, 1, 0]);
+  const scaleStack = useTransform(smoothProgress, [0.05, 0.27, 0.63, 0.95], [0.95, 1, 1, 0.95]);
+
+  // Tile 3: GenAI Workflows (1x1, middle right)
+  const yGenAIProgress = useTransform(smoothProgress, [0.07, 0.30, 0.64, 0.96], [95, 0, 0, -100]);
+  const yGenAI = useTransform([yGenAIProgress, velocityOffset], (values: number[]) => values[0] + values[1] * 1.1);
+  const xGenAI = useTransform(smoothProgress, [0.07, 0.30, 0.64, 0.96], [25, 0, 0, 35]);
+  const opacityGenAI = useTransform(smoothProgress, [0.07, 0.26, 0.67, 0.96], [0, 1, 1, 0]);
+  const scaleGenAI = useTransform(smoothProgress, [0.06, 0.30, 0.64, 0.96], [0.95, 1, 1, 0.95]);
+
+  // Tile 4: Engineering Philosophy (3x1, bottom banner)
+  const yPhilProgress = useTransform(smoothProgress, [0.10, 0.33, 0.66, 0.98], [110, 0, 0, -75]);
+  const yPhil = useTransform([yPhilProgress, velocityOffset], (values: number[]) => values[0] + values[1] * 0.8);
+  const opacityPhil = useTransform(smoothProgress, [0.10, 0.28, 0.70, 0.98], [0, 1, 1, 0]);
+  const scalePhil = useTransform(smoothProgress, [0.10, 0.33, 0.66, 0.98], [0.96, 1, 1, 0.96]);
+
   return (
-    <main className="relative min-h-screen px-6 py-24 md:px-12 lg:px-24 max-w-7xl mx-auto space-y-32">
+    <main id="top" className="relative min-h-screen px-6 py-24 md:px-12 lg:px-24 max-w-7xl mx-auto space-y-32">
       <BackgroundCanvas />
 
       {/* Hero Section */}
@@ -50,16 +101,32 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Bento Grid Section (About & Skills) */}
-      <section id="about" className="relative z-10 space-y-12 scroll-mt-24">
-        <div className="flex flex-col space-y-2">
+      {/* Bento Grid Section (About & Skills) - Speed-linked Glide In & Glide Away */}
+      <section id="about" ref={bentoRef} className="relative z-10 space-y-12 scroll-mt-24">
+        <motion.div
+          style={{
+            y: yTitle,
+            opacity: opacityTitle,
+          }}
+          className="flex flex-col space-y-2"
+        >
           <h2 className="text-3xl font-bold tracking-tight">Capabilities</h2>
           <p className="text-secondary">A blend of technical leadership and deep-stack engineering.</p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]">
           {/* Bio Tile */}
-          <SpotlightCard className="md:col-span-2 md:row-span-2 flex flex-col justify-end space-y-4">
+          <SpotlightCard
+            style={{
+              y: yBio,
+              x: xBio,
+              opacity: opacityBio,
+              scale: scaleBio,
+              rotateX: velocityTilt,
+            }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            className="md:col-span-2 md:row-span-2 flex flex-col justify-end space-y-4"
+          >
             <div className="p-2 w-fit rounded-lg bg-accent-primary/10 text-accent-primary text-xs font-bold uppercase tracking-wider">
               About
             </div>
@@ -71,21 +138,50 @@ export default function Home() {
           </SpotlightCard>
 
           {/* Tech Stack Ticker Tile */}
-          <SpotlightCard className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center space-y-2">
+          <SpotlightCard
+            style={{
+              y: yStack,
+              x: xStack,
+              opacity: opacityStack,
+              scale: scaleStack,
+              rotateX: velocityTilt,
+            }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center space-y-2"
+          >
             <Cpu className="w-6 h-6 text-accent-primary mb-2" />
             <h3 className="font-bold">Stack</h3>
             <p className="text-sm text-secondary">Next.js • FastAPI • Python • C++ • Supabase</p>
           </SpotlightCard>
 
           {/* Focus Area Tile 1 */}
-          <SpotlightCard className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center space-y-2">
+          <SpotlightCard
+            style={{
+              y: yGenAI,
+              x: xGenAI,
+              opacity: opacityGenAI,
+              scale: scaleGenAI,
+              rotateX: velocityTilt,
+            }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center space-y-2"
+          >
             <Rocket className="w-6 h-6 text-accent-secondary mb-2" />
             <h3 className="font-bold">GenAI Workflows</h3>
             <p className="text-sm text-secondary">LLM orchestration & Agentic UI</p>
           </SpotlightCard>
 
           {/* Focus Area Tile 2 */}
-          <SpotlightCard className="md:col-span-3 md:row-span-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <SpotlightCard
+            style={{
+              y: yPhil,
+              opacity: opacityPhil,
+              scale: scalePhil,
+              rotateX: velocityTilt,
+            }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            className="md:col-span-3 md:row-span-1 flex flex-col md:flex-row md:items-center justify-between gap-4"
+          >
             <div className="flex items-center gap-3">
               <Code2 className="w-6 h-6 text-accent-primary" />
               <h3 className="font-bold">Engineering Philosophy</h3>
@@ -98,55 +194,95 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section - Sticky Stacking Cards */}
       <section id="projects" className="relative z-10 space-y-12 scroll-mt-24">
-        <div className="flex flex-col space-y-2">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex flex-col space-y-2"
+        >
           <h2 className="text-3xl font-bold tracking-tight">Selected Works</h2>
           <p className="text-secondary">Products that solve real problems with precision.</p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="relative space-y-6 pb-8">
           {[
             {
               title: "Vectra Labs",
-              desc: "Advanced AI-driven research and analysis platform.",
-              tags: ["Next.js", "Python", "LLMs"],
+              desc: "Engineering the next generation of algorithmic thinkers. A mobile-first EdTech platform teaching Python, AI, and computational logic to Classes 5-10.",
+              tags: ["Python", "AI", "EdTech"],
               link: "#"
             },
             {
-              title: "Custom VOD Platform",
-              desc: "High-scale video on demand architecture with seamless streaming.",
+              title: "Profzr's Custom VOD Platform",
+              desc: "Engineered with independently decoupled frontend and backend architectures, seamlessly integrated through a dedicated connection and streaming pipeline.",
               tags: ["FastAPI", "React", "S3"],
               link: "#"
             },
             {
               title: "Loomo",
-              desc: "Interactive learning experience designed for the next generation.",
-              tags: ["TypeScript", "Tailwind", "Supabase"],
+              desc: "An AI-driven micro-SaaS built with Next.js 15, Supabase, and Google Gemini that instantly generates live mobile storefronts and social marketing assets from a single text prompt. It features a zero-backend WhatsApp checkout architecture and automated media rendering, eliminating all technical friction for local MSMEs to launch online.",
+              tags: ["Next.js 15", "Supabase", "Google Gemini"],
               link: "#"
             },
             {
-              title: "Study Hub Kerala",
-              desc: "Regional educational resource aggregator with intuitive discovery.",
+              title: "Profzr's Blog-page",
+              desc: "Profzr's academy – A modern, responsive educational platform providing chapter-wise resources for Kerala Syllabus (SSLC, Plus One, & Plus Two). Features a clean \"glassmorphic\" UI, dynamic PDF management, and subject-specific color schemes",
               tags: ["Next.js", "PostgreSQL", "Radix UI"],
               link: "#"
             },
+            {
+              title: "Infocyle",
+              desc: "Infocyle is an intelligent educational platform that equips young developers with production-grade backend engineering and AI architecture skills. We bridge the gap between theoretical academics and scalable software development by transforming students from tech consumers into systems architects.",
+              tags: ["Backend Engineering", "AI Architecture", "System Design"],
+              link: "#"
+            },
           ].map((project, i) => (
-            <SpotlightCard key={i} className="group cursor-pointer">
-              <div className="flex justify-between items-start mb-4">
-                <div className="p-2 rounded-lg bg-accent-primary/10 text-accent-primary">
-                  <Globe className="w-5 h-5" />
+            <SpotlightCard
+              key={i}
+              style={{
+                top: `calc(5.5rem + ${i * 1.75}rem)`,
+              }}
+              initial={{ opacity: 0, y: 50, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="sticky group cursor-pointer bg-surface/95 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-shadow"
+            >
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div className="space-y-4 max-w-2xl">
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-accent-primary/10 text-accent-primary">
+                      0{i + 1}
+                    </span>
+                    <div className="p-1.5 rounded-md bg-black/5 dark:bg-white/5 text-secondary">
+                      <Globe className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-accent-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-secondary text-base leading-relaxed">
+                      {project.desc}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="text-xs font-medium px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-secondary">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <ExternalLink className="w-5 h-5 text-secondary group-hover:text-primary transition-colors" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-secondary mb-6">{project.desc}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                  <span key={tag} className="text-xs font-medium px-2 py-1 rounded-md bg-black/5 dark:bg-white/5 text-secondary">
-                    {tag}
-                  </span>
-                ))}
+
+                <div className="shrink-0 flex items-center gap-2 text-sm font-semibold text-secondary group-hover:text-primary transition-colors">
+                  <span>Explore</span>
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
               </div>
             </SpotlightCard>
           ))}
@@ -154,7 +290,14 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative z-10 space-y-8 scroll-mt-24">
+      <motion.section
+        id="contact"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative z-10 space-y-8 scroll-mt-24"
+      >
         <div className="flex flex-col space-y-2">
           <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
           <p className="text-secondary">Have an idea, project, or leadership opportunity? Let's connect.</p>
@@ -168,13 +311,13 @@ export default function Home() {
             </p>
           </div>
           <MagneticButton
-            href="mailto:contact@sreerag.dev"
+            href="mailto:sreeragpp435@gmail.com"
             className="bg-primary text-bg shrink-0"
           >
             Say Hello
           </MagneticButton>
         </SpotlightCard>
-      </section>
+      </motion.section>
 
       {/* Footer Section */}
       <footer className="relative z-10 pt-20 pb-12 border-t border-black/5 dark:border-white/10 space-y-8">
@@ -193,7 +336,7 @@ export default function Home() {
 
           <div className="flex gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/sreeragpp86"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -211,7 +354,7 @@ export default function Home() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/_sreeragpp_?stkn=YWpreTd2d2c3d3Z1"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -220,7 +363,7 @@ export default function Home() {
               <Instagram className="w-5 h-5" />
             </a>
             <a
-              href="mailto:contact@sreerag.dev"
+              href="mailto:sreeragpp435@gmail.com"
               aria-label="Email"
               className="text-secondary hover:text-primary transition-colors"
             >

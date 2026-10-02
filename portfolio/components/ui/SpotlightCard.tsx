@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface SpotlightCardProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
   className?: string;
 }
 
-export const SpotlightCard = ({ children, className, ...props }: SpotlightCardProps) => {
+export const SpotlightCard = ({ children, className, style, ...props }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null);
 
   const mouseX = useMotionValue(0);
@@ -17,16 +17,17 @@ export const SpotlightCard = ({ children, className, ...props }: SpotlightCardPr
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent<HTMLDivElement>) {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
   }
 
   return (
-    <div
+    <motion.div
       ref={divRef}
       onMouseMove={handleMouseMove}
+      style={style}
       className={cn(
         "relative group overflow-hidden rounded-xl border border-black/5 bg-surface p-8 transition-colors dark:border-white/10",
         className
@@ -46,9 +47,9 @@ export const SpotlightCard = ({ children, className, ...props }: SpotlightCardPr
       />
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 w-full h-full">
         {children}
       </div>
-    </div>
+    </motion.div>
   );
 };

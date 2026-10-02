@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infocyle Official Invitation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #333; /* Dark background outside the paper */
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            margin: 0;
+            color: #1e293b;
+        }
+
+        .page {
+            background-color: #ffffff;
+            width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            box-sizing: border-box;
+            padding: 50px 60px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Top Cyan Border matching the screenshot */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background-color: #06b6d4; /* Cyan/Teal color */
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-placeholder {
+            height: 60px;
+            width: 200px;
+            margin: 0 auto 5px auto;
+            border: 2px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 10px;
+            color: #475569;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 20px 0;
+        }
+
+        .invitation-badge {
+            color: #06b6d4;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            color: #475569;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        /* 3-Column Info Block */
+        .info-block {
+            display: flex;
+            border: 1px solid #f1f5f9;
+            background-color: #fafafa;
+            margin-bottom: 30px;
+        }
+
+        .info-col {
+            flex: 1;
+            padding: 12px 10px;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.5;
+            border-right: 1px solid #f1f5f9;
+        }
+
+        .info-col:last-child {
+            border-right: none;
+        }
+
+        .info-col strong {
+            display: block;
+            color: #334155;
+        }
+
+        /* Body Typography */
+        p {
+            font-size: 12.5px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #334155;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .recipient-block p {
+            margin-bottom: 3px;
+        }
+        
+        .subject-line {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Event Details Table */
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #0f172a;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 12.5px;
+        }
+
+        td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 15px;
+            color: #334155;
+        }
+
+        td:first-child {
+            width: 25%;
+            font-weight: 600;
+            background-color: #fafafa;
+            color: #475569;
+        }
+
+        /* Lists */
+        ul {
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #334155;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Footer / Sign off */
+        .sign-off {
+            margin-top: 40px;
+        }
+
+        .page-footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 9px;
+            color: #94a3b8;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                width: 100%;
+                min-height: auto;
+                padding: 20mm;
+            }
+            .logo-placeholder {
+                border: 1px solid #fff; /* Hide dashed border on print if needed */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- Header Section -->
+        <div class="header-section">
+            <!-- Replace this div with your actual logo <img> tag -->
+            <div class="logo-placeholder">
+                [ INSERT INFOCYLE LOGO HERE ]
+            </div>
+            <div class="tagline">LEARN. BUILD. SOLVE. INNOVATE.</div>
+            
+            <hr>
+            
+            <div class="invitation-badge">OFFICIAL INVITATION</div>
+            <h1 class="title">AI AWARENESS CAMP</h1>
+            <p class="subtitle">Empowering Young Minds for an AI-Driven Future</p>
+        </div>
+
+        <!-- 3-Column Info Block -->
+        <div class="info-block">
+            <div class="info-col">
+                <strong>Imran Ali S</strong>
+                Co-founder & CEO, Infocyle
+            </div>
+            <div class="info-col">
+                <strong>Contact</strong>
+                +91 98951 68902<br>
+                infocyle.tech@gmail.com
+            </div>
+            <div class="info-col">
+                <strong>Date</strong>
+                [Insert Date]
+            </div>
+        </div>
+
+        <!-- Recipient Details -->
+        <div class="recipient-block">
+            <p><strong>To</strong></p>
+            <p>The Manager</p>
+            <p>Lajnathul Muhammadiya Higher Secondary School</p>
+            <p>Zachariya Bazar, Alappuzha, Kerala – 688001</p>
+        </div>
+
+        <!-- Subject -->
+        <p class="subject-line"><strong>Subject: Invitation to Grace the Inauguration of the AI Awareness Camp</strong></p>
+
+        <!-- Body -->
+        <p><strong>Respected Sir/Madam,</strong></p>
+
+        <p>It is our privilege to cordially invite you to grace the <strong>AI Awareness Camp</strong>, a student-focused initiative by <strong>Infocyle</strong> designed to introduce young minds to the possibilities, applications, and opportunities emerging in the field of Artificial Intelligence.</p>
+
+        <p>We would be honoured by your presence as the <strong>Guest of Honor</strong> for the inauguration of the program. Your presence and words of encouragement would add great value to the occasion and inspire the students to explore the evolving world of technology with curiosity and confidence.</p>
+
+        <!-- Event Details -->
+        <div class="section-title">EVENT DETAILS</div>
+        <table>
+            <tr>
+                <td>Program</td>
+                <td>AI Awareness Camp for High School Students</td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>[Insert Finalized Date]</td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td>[Insert Finalized Time]</td>
+            </tr>
+            <tr>
+                <td>Duration</td>
+                <td>1–2 Hours</td>
+            </tr>
+            <tr>
+                <td>Venue</td>
+                <td>Lajnathul Muhammadiya Higher Secondary School, Alappuzha</td>
+            </tr>
+        </table>
+
+        <!-- About the Session -->
+        <div class="section-title">ABOUT THE SESSION</div>
+        <p>The interactive session will be led by the <strong>Infocyle leadership team — Imran Ali S, Sreerag PP, and Farhan A.</strong></p>
+        <ul>
+            <li>The fundamentals and real-world applications of Artificial Intelligence</li>
+            <li>Live demonstrations of modern AI tools</li>
+            <li>AI in education and everyday life</li>
+            <li>Emerging career opportunities in AI and technology</li>
+            <li>Responsible and ethical use of Artificial Intelligence</li>
+        </ul>
+
+        <p>Our aim is to help students understand AI not simply as a technology of the future, but as a powerful tool they can begin exploring today.</p>
+
+        <p>We sincerely appreciate the school's support in making this initiative possible and look forward to welcoming you to the program.</p>
+
+        <p><strong>We would be honoured by your presence.</strong></p>
+
+        <!-- Sign Off -->
+        <div class="sign-off">
+            <p>
+                Warm Regards,<br><br>
+                <strong>Imran Ali S</strong><br>
+                Co-founder & CEO<br>
+                Infocyle<br>
+                +91 98951 68902 | infocyle.tech@gmail.com<br>
+                infocyle.com
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            INFOCYLE &nbsp;&middot;&nbsp; LEARN. BUILD. SOLVE. INNOVATE.
+        </div>
+    </div>
+
+</body>
+</html>
