@@ -25,6 +25,9 @@
   body { @apply bg-bg text-secondary font-sans antialiased overflow-x-hidden; }
   h1, h2, h3 { @apply text-primary; }
   :focus-visible { @apply outline outline-2 outline-offset-2 outline-primary; }
+  html, body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
 }
 
 @layer components {
@@ -38,4 +41,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  html, body { transition: none; }
 }

@@ -306,7 +306,7 @@ export const BackgroundCanvas = ({ className }: { className?: string }) => {
   }, [mouseX, mouseY]);
 
   return (
-    <div className={cn("fixed inset-0 -z-20 pointer-events-none overflow-hidden bg-bg", className)}>
+    <div className={cn("fixed inset-0 -z-20 pointer-events-none overflow-hidden bg-bg transition-colors duration-500 ease-out", className)}>
       {/* Noise Overlay */}
       <div className="absolute inset-0 noise z-10" />
 

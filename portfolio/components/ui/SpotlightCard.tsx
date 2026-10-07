@@ -29,7 +29,7 @@ export const SpotlightCard = ({ children, className, style, ...props }: Spotligh
       onMouseMove={handleMouseMove}
       style={style}
       className={cn(
-        "relative group overflow-hidden rounded-xl border border-black/5 bg-surface p-8 transition-colors dark:border-white/10",
+        "relative group overflow-hidden rounded-xl border border-black/5 bg-surface p-6 sm:p-8 transition-colors dark:border-white/10",
         className
       )}
       {...props}
