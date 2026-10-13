@@ -16,8 +16,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Style Template: "neumorphic" (default) or "original".
+  // Change data-style to "original" to switch back to the original style anytime.
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-style="neumorphic" suppressHydrationWarning>
       <body className={inter.className}>
         <AppThemeProvider>
           <Nav />

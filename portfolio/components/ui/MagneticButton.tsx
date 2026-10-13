@@ -74,6 +74,8 @@ export const MagneticButton = ({
     className
   );
 
+  const isPrimary = className?.includes("bg-primary");
+
   if (href) {
     return (
       <motion.a
@@ -81,6 +83,8 @@ export const MagneticButton = ({
         href={href}
         target={target}
         rel={rel}
+        data-neu-btn=""
+        data-neu-btn-primary={isPrimary ? "" : undefined}
         onClick={handleClick}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -98,6 +102,8 @@ export const MagneticButton = ({
       ref={ref}
       type={type}
       disabled={disabled}
+      data-neu-btn=""
+      data-neu-btn-primary={isPrimary ? "" : undefined}
       onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}

@@ -13,9 +13,9 @@ export function Nav() {
         <a href="#top" className="text-sm font-bold tracking-tight text-primary hover:opacity-80 transition-opacity">
           Sreerag P P
         </a>
-        <div className="flex items-center gap-4 sm:gap-6 text-sm font-medium">
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-6 text-sm font-medium">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-secondary transition-colors hover:text-primary">
+            <a key={l.href} href={l.href} className="text-secondary transition-colors hover:text-primary hidden sm:inline-block">
               {l.label}
             </a>
           ))}

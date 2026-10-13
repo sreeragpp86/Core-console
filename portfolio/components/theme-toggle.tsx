@@ -75,6 +75,7 @@ export function ThemeToggle() {
       <motion.button
         ref={buttonRef}
         type="button"
+        data-neu-toggle=""
         aria-label="Toggle theme"
         onClick={handleToggle}
         whileHover={{ scale: 1.08 }}

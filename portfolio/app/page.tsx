@@ -177,7 +177,7 @@ export default function Home() {
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
             className="md:col-span-2 md:row-span-2 flex flex-col justify-end space-y-3 sm:space-y-4 min-h-[200px] md:min-h-0"
           >
-            <div className="p-2 w-fit rounded-lg bg-accent-primary/10 text-accent-primary text-xs font-bold uppercase tracking-wider">
+            <div data-neu-inset="" className="p-2 w-fit rounded-lg bg-accent-primary/10 text-accent-primary text-xs font-bold uppercase tracking-wider">
               About
             </div>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-primary/90">
@@ -199,9 +199,11 @@ export default function Home() {
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
             className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center space-y-2 min-h-[150px] md:min-h-0"
           >
-            <Cpu className="w-6 h-6 text-accent-primary mb-1 sm:mb-2" />
+            <div data-neu-inset="" className="p-2.5 rounded-xl bg-accent-primary/10 text-accent-primary mb-1 sm:mb-2">
+              <Cpu className="w-5 h-5" />
+            </div>
             <h3 className="font-bold text-base sm:text-lg text-primary">Stack</h3>
-            <p className="text-xs sm:text-sm text-secondary">Next.js • FastAPI • Python • C++ • Supabase</p>
+            <p className="text-xs sm:text-sm text-secondary">FastAPI • Python • Next.js • TypeScript • Celery • Redis</p>
           </SpotlightCard>
 
           {/* Focus Area Tile 1 */}
@@ -216,9 +218,11 @@ export default function Home() {
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
             className="md:col-span-1 md:row-span-1 flex flex-col justify-center items-center text-center space-y-2 min-h-[150px] md:min-h-0"
           >
-            <Rocket className="w-6 h-6 text-accent-secondary mb-1 sm:mb-2" />
-            <h3 className="font-bold text-base sm:text-lg text-primary">GenAI Workflows</h3>
-            <p className="text-xs sm:text-sm text-secondary">LLM orchestration & Agentic UI</p>
+            <div data-neu-inset="" className="p-2.5 rounded-xl bg-accent-secondary/10 text-accent-secondary mb-1 sm:mb-2">
+              <Rocket className="w-5 h-5" />
+            </div>
+            <h3 className="font-bold text-base sm:text-lg text-primary">Distributed Systems</h3>
+            <p className="text-xs sm:text-sm text-secondary">Async task queues, Redis & FFmpeg pipelines</p>
           </SpotlightCard>
 
           {/* Focus Area Tile 2 */}
@@ -233,7 +237,9 @@ export default function Home() {
             className="md:col-span-3 md:row-span-1 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 min-h-[140px] md:min-h-0"
           >
             <div className="flex items-center gap-3">
-              <Code2 className="w-6 h-6 text-accent-primary" />
+              <div data-neu-inset="" className="p-2.5 rounded-xl bg-accent-primary/10 text-accent-primary">
+                <Code2 className="w-5 h-5" />
+              </div>
               <h3 className="font-bold text-base sm:text-lg text-primary">Engineering Philosophy</h3>
             </div>
             <p className="text-xs sm:text-sm text-secondary md:max-w-md text-left md:text-right leading-relaxed">
@@ -260,16 +266,16 @@ export default function Home() {
         <div className="relative space-y-6 pb-8">
           {[
             {
-              title: "Vectra Labs",
-              desc: "Engineering the next generation of algorithmic thinkers. A mobile-first EdTech platform teaching Python, AI, and computational logic to Classes 5-10.",
-              tags: ["Python", "AI", "EdTech"],
-              link: "#"
+              title: "FluxMedia",
+              desc: "A fault-tolerant distributed media processing pipeline and task queue. Built with FastAPI, Celery, and Redis to asynchronously transcode and compress heavy video workloads via FFmpeg without blocking the API event loop, complemented by an interactive Next.js 14 telemetry dashboard.",
+              tags: ["FastAPI", "Celery", "Redis", "FFmpeg", "Next.js 14"],
+              link: "https://github.com/sreeragpp86/FluxMedia"
             },
             {
-              title: "Profzr's Custom VOD Platform",
-              desc: "Engineered with independently decoupled frontend and backend architectures, seamlessly integrated through a dedicated connection and streaming pipeline.",
-              tags: ["FastAPI", "React", "S3"],
-              link: "#"
+              title: "Profzr's Academy",
+              desc: "A full-stack educational web platform delivering chapter-wise academic modules, dynamic PDF resources, and subject-specific learning schemes for the Kerala State Syllabus (SSLC, Plus One, & Plus Two).",
+              tags: ["Python", "Django", "JavaScript", "SQLite"],
+              link: "https://github.com/sreeragpp86/Profzr-s-Academy"
             },
             {
               title: "Loomo",
@@ -278,16 +284,10 @@ export default function Home() {
               link: "#"
             },
             {
-              title: "Profzr's Blog-page",
-              desc: "Profzr's academy – A modern, responsive educational platform providing chapter-wise resources for Kerala Syllabus (SSLC, Plus One, & Plus Two). Features a clean \"glassmorphic\" UI, dynamic PDF management, and subject-specific color schemes",
-              tags: ["Next.js", "PostgreSQL", "Radix UI"],
-              link: "#"
-            },
-            {
-              title: "Infocyle",
-              desc: "Infocyle is an intelligent educational platform that equips young developers with production-grade backend engineering and AI architecture skills. We bridge the gap between theoretical academics and scalable software development by transforming students from tech consumers into systems architects.",
-              tags: ["Backend Engineering", "AI Architecture", "System Design"],
-              link: "#"
+              title: "Core-console",
+              desc: "Personal engineering showcase and portfolio platform. Developed with Next.js 14 App Router, TypeScript, Tailwind CSS, Framer Motion springs and scroll-velocity transforms, HTML5 Canvas 3D particle physics, and a tactile Soft UI (Neumorphism) design system.",
+              tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion"],
+              link: "https://github.com/sreeragpp86/Core-console"
             },
           ].map((project, i) => (
             <SpotlightCard
@@ -300,15 +300,16 @@ export default function Home() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              onClick={() => project.link !== "#" && window.open(project.link, "_blank", "noopener,noreferrer")}
               className="sticky group cursor-pointer bg-surface/95 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-shadow p-5 sm:p-6 md:p-8"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6">
                 <div className="space-y-3 sm:space-y-4 max-w-2xl">
                   <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-accent-primary/10 text-accent-primary">
+                    <span data-neu-inset="" className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-accent-primary/10 text-accent-primary">
                       0{i + 1}
                     </span>
-                    <div className="p-1.5 rounded-md bg-black/5 dark:bg-white/5 text-secondary">
+                    <div data-neu-inset="" className="p-1.5 rounded-md bg-black/5 dark:bg-white/5 text-secondary">
                       <Globe className="w-4 h-4" />
                     </div>
                   </div>
@@ -322,17 +323,26 @@ export default function Home() {
                   </div>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-secondary">
+                      <span key={tag} data-neu-inset="" className="text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-black/5 dark:bg-white/5 text-secondary">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-secondary group-hover:text-primary transition-colors pt-2 md:pt-0">
+                <a
+                  href={project.link}
+                  target={project.link !== "#" ? "_blank" : undefined}
+                  rel={project.link !== "#" ? "noopener noreferrer" : undefined}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (project.link === "#") e.preventDefault();
+                  }}
+                  className="shrink-0 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-secondary group-hover:text-primary transition-colors pt-2 md:pt-0"
+                >
                   <span>Explore</span>
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
+                </a>
               </div>
             </SpotlightCard>
           ))}
@@ -395,7 +405,7 @@ export default function Home() {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/sreerag-pp-42a8b13a3"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

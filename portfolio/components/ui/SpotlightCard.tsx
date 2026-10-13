@@ -26,6 +26,7 @@ export const SpotlightCard = ({ children, className, style, ...props }: Spotligh
   return (
     <motion.div
       ref={divRef}
+      data-neu-card=""
       onMouseMove={handleMouseMove}
       style={style}
       className={cn(
