@@ -17,7 +17,6 @@ import {
   Calendar,
   Award,
 } from "lucide-react";
-import { BackgroundCanvas } from "@/components/ui/BackgroundCanvas";
 
 const TECHNICAL_SKILLS = [
   {
@@ -110,10 +109,7 @@ const PROJECTS = [
 
 export default function ResumePage() {
   return (
-    <main className="relative min-h-screen bg-bg text-secondary selection:bg-accent-primary/20 selection:text-primary">
-      {/* Ambient background canvas */}
-      <BackgroundCanvas />
-
+    <main id="main-content" className="relative min-h-screen bg-bg text-secondary selection:bg-accent-primary/20 selection:text-primary">
       {/* Top Floating / Header Bar */}
       <header className="sticky top-0 z-40 border-b border-black/5 bg-bg/75 backdrop-blur-md dark:border-white/10 transition-colors">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-12 lg:px-24">
@@ -593,8 +589,10 @@ export default function ResumePage() {
 
         {/* Footer Section */}
         <footer className="mt-14 pt-8 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-secondary">
-          <div>
+          <div className="flex flex-wrap items-center gap-3">
             <span>$ cat sreerag_cv.json | status --verified</span>
+            <span className="text-secondary/50">·</span>
+            <span>$ last_updated --Oct_2026</span>
           </div>
           <div className="flex items-center gap-4">
             <a

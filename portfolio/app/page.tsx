@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, useVelocity } from "framer-motion";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { BackgroundCanvas } from "@/components/ui/BackgroundCanvas";
+import { CopyEmailButton } from "@/components/ui/CopyEmailButton";
 import { Github, Linkedin, Instagram, Mail, ExternalLink, Cpu, Code2, Rocket, Globe } from "lucide-react";
 
 export default function Home() {
@@ -59,9 +59,7 @@ export default function Home() {
   const scalePhil = useTransform(smoothProgress, [0.10, 0.33, 0.66, 0.98], [0.96, 1, 1, 0.96]);
 
   return (
-    <main id="top" className="relative min-h-screen px-4 py-16 sm:px-6 md:px-12 lg:px-24 md:py-24 max-w-7xl mx-auto space-y-20 md:space-y-32">
-      <BackgroundCanvas />
-
+    <main id="main-content" className="relative min-h-screen px-4 py-16 sm:px-6 md:px-12 lg:px-24 md:py-24 max-w-7xl mx-auto space-y-20 md:space-y-32">
       {/* Hero Section */}
       <section className="relative flex flex-col items-start justify-center min-h-[65vh] md:min-h-[70vh] space-y-5 sm:space-y-6">
         <motion.h1
@@ -370,12 +368,15 @@ export default function Home() {
               Whether you need scalable backend architecture, GenAI workflows, or engineering leadership for your venture, my inbox is always open.
             </p>
           </div>
-          <MagneticButton
-            href="mailto:sreeragpp435@gmail.com"
-            className="bg-primary text-bg shrink-0 w-full sm:w-auto text-center justify-center"
-          >
-            Say Hello
-          </MagneticButton>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
+            <MagneticButton
+              href="mailto:sreeragpp81@gmail.com"
+              className="bg-primary text-bg shrink-0 w-full sm:w-auto text-center justify-center"
+            >
+              Say Hello
+            </MagneticButton>
+            <CopyEmailButton />
+          </div>
         </SpotlightCard>
       </motion.section>
 
@@ -391,6 +392,9 @@ export default function Home() {
             </p>
             <p className="text-secondary">
               <span className="text-accent-primary font-bold">$</span> location --kerala, india
+            </p>
+            <p className="text-secondary">
+              <span className="text-accent-primary font-bold">$</span> last_updated --Oct_2026
             </p>
           </div>
 

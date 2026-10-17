@@ -3,6 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AppThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/nav";
+import { SkipToContent } from "@/components/ui/SkipToContent";
+import { ScrollProgressBar } from "@/components/ui/ScrollProgressBar";
+import { BackToTop } from "@/components/ui/BackToTop";
+import { CookieBanner } from "@/components/ui/CookieBanner";
+import { BackgroundCanvas } from "@/components/ui/BackgroundCanvas";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +27,13 @@ export default function RootLayout({
     <html lang="en" data-style="neumorphic" suppressHydrationWarning>
       <body className={inter.className}>
         <AppThemeProvider>
+          <SkipToContent />
+          <ScrollProgressBar />
+          <BackgroundCanvas />
           <Nav />
           {children}
+          <BackToTop />
+          <CookieBanner />
         </AppThemeProvider>
       </body>
     </html>

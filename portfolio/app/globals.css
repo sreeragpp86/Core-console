@@ -213,3 +213,97 @@ html[data-style="neumorphic"] [data-neu-toggle]:active {
 html[data-style="neumorphic"] footer {
   border-top: 1px solid var(--neu-bevel-light) !important;
 }
+
+/* =========================================================================
+   Print Stylesheet (A4 Formatting, High Contrast, Clutter Removal)
+   ========================================================================= */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  /* Force clean white background and crisp dark text across all elements */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Hide interactive, floating, ambient, and navigational elements */
+  header,
+  footer,
+  nav,
+  canvas,
+  [data-neu-btn],
+  .fixed,
+  .sticky,
+  button,
+  #scroll-progress,
+  [aria-label="Back to top"],
+  [aria-label="Cookie consent"] {
+    display: none !important;
+  }
+
+  /* Optimize layout for paper */
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Retain subtle, crisp border structure on cards */
+  [data-neu-card],
+  .card {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 6px !important;
+    padding: 10pt 12pt !important;
+    margin-bottom: 10pt !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  [data-neu-inset] {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 4px !important;
+    padding: 2pt 4pt !important;
+  }
+
+  /* Ensure headings are dark and distinct */
+  h1, h2, h3, h4 {
+    color: #000000 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Display legible link targets for external references */
+  a {
+    text-decoration: underline !important;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 7.5pt;
+    color: #4b5563 !important;
+  }
+
+  /* Don't print URLs for internal hash or javascript links */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+}
+
