@@ -14,6 +14,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Sreerag P P | Full-Stack Developer & CTO",
   description: "Developer portfolio of Sreerag P P, Full-Stack Developer & CTO @ Infocyle.",
+  verification: {
+    google: "Jt6_pJh3w7JPvYDYIiS_6SnOW2kFv_v0X3gExgsyZCs",
+  },
 };
 
 export default function RootLayout({
