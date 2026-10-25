@@ -7,7 +7,7 @@
   --bg: #fafafa;
   --surface: #ffffff;
   --text-primary: #09090b;
-  --text-secondary: #52525b;
+  --text-secondary: #4b5563;
   --accent-primary: #4f46e5;
   --accent-secondary: #059669;
 }
@@ -15,7 +15,7 @@
   --bg: #09090b;
   --surface: #121214;
   --text-primary: #fafafa;
-  --text-secondary: #a1a1aa;
+  --text-secondary: #cbd5e1;
   --accent-primary: #6366f1;
   --accent-secondary: #10b981;
 }
@@ -42,6 +42,12 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   html, body { transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* =========================================================================
@@ -55,7 +61,7 @@ html[data-style="neumorphic"]:not(.dark) {
   --bg: #e6ebf2;
   --surface: #e6ebf2;
   --text-primary: #0f172a;
-  --text-secondary: #475569;
+  --text-secondary: #334155;
   --accent-primary: #4f46e5;
   --accent-secondary: #059669;
 
@@ -80,7 +86,7 @@ html[data-style="neumorphic"].dark {
   --bg: #13151b;
   --surface: #13151b;
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --text-secondary: #cbd5e1;
   --accent-primary: #6366f1;
   --accent-secondary: #10b981;
 

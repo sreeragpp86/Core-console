@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   Download,
   ArrowLeft,
@@ -17,6 +17,7 @@ import {
   Calendar,
   Award,
 } from "lucide-react";
+import { PROJECTS } from "@/data/projects";
 
 const TECHNICAL_SKILLS = [
   {
@@ -66,48 +67,9 @@ const EXPERIENCES = [
   },
 ];
 
-const PROJECTS = [
-  {
-    name: "FluxMedia",
-    badge: "Distributed Pipeline",
-    period: "Oct. 2026 – Present",
-    stack: ["Python", "FastAPI", "Redis", "Celery", "FFmpeg", "Next.js"],
-    description:
-      "Fault-tolerant, asynchronous distributed media processing pipeline engineered to decouple high-load CPU workloads from the main web server.",
-    highlights: [
-      "Architected a fault-tolerant, asynchronous media processing pipeline to decouple heavy CPU workloads from the main web server.",
-      "Engineered a RESTful API with FastAPI to ingest large media files and dispatch processing tickets to a Redis message broker.",
-      "Developed background Celery worker nodes to pull tasks and execute hardware-accelerated H.264 video compression utilizing macOS VideoToolbox.",
-      "Built real-time status-tracking endpoints allowing Next.js frontends to poll continuous job states without blocking the event loop.",
-    ],
-  },
-  {
-    name: "Loomo",
-    badge: "Workflow Engine",
-    period: "Early 2026",
-    stack: ["Python", "CLI Architecture", "Virtual Environments", "AI Orchestration"],
-    description:
-      "Modular Python execution engine designed to automate complex multi-stage generative media workflows with isolated environment runtimes.",
-    highlights: [
-      "Developed a modular Python execution engine designed to automate complex generative media workflows.",
-      "Configured isolated virtual environments and custom scripting to sequence AI generation tools, handling prompt parsing, output rendering, and file system management.",
-    ],
-  },
-  {
-    name: "Profezr's Blog",
-    badge: "Full-Stack EdTech",
-    period: "April 2026",
-    stack: ["Next.js", "FastAPI", "Supabase", "PostgreSQL", "Tailwind CSS"],
-    description:
-      "Responsive, full-stack educational web platform dedicated to hosting, organizing, and distributing academic materials for undergraduate students.",
-    highlights: [
-      "Engineered a responsive, full-stack educational web application dedicated to hosting and distributing academic materials for undergraduate students.",
-      "Integrated secure authentication workflows and relational database models to manage user sessions, document metadata, and fast content retrieval.",
-    ],
-  },
-];
-
 export default function ResumePage() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <main id="main-content" className="relative min-h-screen bg-bg text-secondary selection:bg-accent-primary/20 selection:text-primary">
       {/* Top Floating / Header Bar */}
@@ -141,9 +103,9 @@ export default function ResumePage() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 md:px-12 lg:px-24">
         {/* Hero Banner Card */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, ease: "easeOut" }}
           data-neu-card=""
           className="relative mb-10 overflow-hidden rounded-2xl border border-black/5 bg-surface p-6 sm:p-10 dark:border-white/10"
         >
@@ -191,10 +153,10 @@ export default function ResumePage() {
           <aside className="space-y-8 lg:col-span-4">
             {/* Quick Info & Verified Links Card */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
               data-neu-card=""
               className="rounded-2xl border border-black/5 bg-surface p-6 dark:border-white/10"
             >
@@ -246,10 +208,10 @@ export default function ResumePage() {
 
             {/* Technical Skills Bento Card */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.1 }}
               data-neu-card=""
               className="rounded-2xl border border-black/5 bg-surface p-6 dark:border-white/10"
             >
@@ -290,10 +252,10 @@ export default function ResumePage() {
 
             {/* Education & Leadership Card */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.2 }}
               data-neu-card=""
               className="rounded-2xl border border-black/5 bg-surface p-6 dark:border-white/10"
             >
@@ -376,10 +338,10 @@ export default function ResumePage() {
                 {EXPERIENCES.map((exp, idx) => (
                   <motion.div
                     key={exp.company}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={shouldReduceMotion ? false : { opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: idx * 0.15 }}
+                    transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: idx * 0.15 }}
                     className="relative group"
                   >
                     {/* Glowing Node on Timeline */}
@@ -475,18 +437,18 @@ export default function ResumePage() {
                   data-neu-inset=""
                   className="hidden sm:inline-block rounded-full px-3 py-1 font-mono text-xs text-secondary"
                 >
-                  3 Key Architectures
+                  {PROJECTS.length} Key Architectures
                 </span>
               </div>
 
               <div className="grid grid-cols-1 gap-6">
                 {PROJECTS.map((proj, pIdx) => (
                   <motion.div
-                    key={proj.name}
-                    initial={{ opacity: 0, y: 24 }}
+                    key={proj.id}
+                    initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: pIdx * 0.1 }}
+                    transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: pIdx * 0.1 }}
                     data-neu-card=""
                     className="group rounded-2xl border border-black/5 bg-surface p-6 sm:p-7 transition-all duration-300 dark:border-white/10 hover:border-accent-primary/40"
                   >
@@ -494,40 +456,46 @@ export default function ResumePage() {
                       <div>
                         <div className="flex flex-wrap items-center gap-2.5">
                           <h3 className="text-xl font-bold text-primary group-hover:text-accent-primary transition-colors">
-                            {proj.name}
+                            {proj.title}
                           </h3>
-                          <span
-                            data-neu-inset=""
-                            className="rounded-full px-2.5 py-0.5 font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400"
-                          >
-                            {proj.badge}
-                          </span>
+                          {proj.badge && (
+                            <span
+                              data-neu-inset=""
+                              className="rounded-full px-2.5 py-0.5 font-mono text-[11px] font-semibold text-emerald-600 dark:text-emerald-400"
+                            >
+                              {proj.badge}
+                            </span>
+                          )}
                         </div>
                         <p className="mt-1 text-sm text-secondary">
-                          {proj.description}
+                          {proj.fullDesc}
                         </p>
                       </div>
 
-                      <div className="flex items-center gap-2 font-mono text-xs shrink-0">
-                        <Calendar className="h-3.5 w-3.5 text-secondary" />
-                        <span
-                          data-neu-inset=""
-                          className="rounded-md px-2.5 py-1 text-primary font-semibold text-xs"
-                        >
-                          {proj.period}
-                        </span>
-                      </div>
+                      {proj.period && (
+                        <div className="flex items-center gap-2 font-mono text-xs shrink-0">
+                          <Calendar className="h-3.5 w-3.5 text-secondary" />
+                          <span
+                            data-neu-inset=""
+                            className="rounded-md px-2.5 py-1 text-primary font-semibold text-xs"
+                          >
+                            {proj.period}
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Detailed Technical Bullet Points */}
-                    <ul className="mt-4 space-y-2 text-sm text-secondary/95">
-                      {proj.highlights.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2.5">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
-                          <span className="leading-relaxed">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {proj.highlights && proj.highlights.length > 0 && (
+                      <ul className="mt-4 space-y-2 text-sm text-secondary/95">
+                        {proj.highlights.map((bullet, bIdx) => (
+                          <li key={bIdx} className="flex items-start gap-2.5">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                            <span className="leading-relaxed">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
                     {/* Tech Badges */}
                     <div className="mt-5 pt-4 border-t border-black/5 dark:border-white/5 flex flex-wrap gap-1.5">
@@ -550,19 +518,19 @@ export default function ResumePage() {
 
         {/* Bottom CTA & Direct Download Banner */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
           data-neu-card=""
           className="mt-14 rounded-2xl border border-black/5 bg-surface p-8 text-center dark:border-white/10"
         >
           <div className="mx-auto max-w-xl space-y-4">
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-primary">
-              Need a physical or standard PDF copy?
+              Download my resume (PDF)
             </h3>
             <p className="text-sm text-secondary leading-relaxed">
-              Download the complete, ATS-friendly curriculum vitae formatted for offline review or recruitment pipelines.
+              Clean, formatted PDF copy ready for offline review or sharing.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-3">
               <a
@@ -588,34 +556,34 @@ export default function ResumePage() {
         </motion.div>
 
         {/* Footer Section */}
-        <footer className="mt-14 pt-8 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-secondary">
-          <div className="flex flex-wrap items-center gap-3">
-            <span>$ cat sreerag_cv.json | status --verified</span>
-            <span className="text-secondary/50">·</span>
+        <footer className="mt-14 pt-8 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] sm:text-xs font-mono text-secondary">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span>$ cat sreerag_cv.json</span>
+            <span className="text-secondary/50 hidden xs:inline" aria-hidden="true">·</span>
             <span>$ last_updated --Oct_2026</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <a
               href="https://github.com/sreeragpp86"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="inline-flex items-center min-h-[44px] min-w-[44px] justify-center px-2 hover:text-primary transition-colors"
             >
               GitHub
             </a>
-            <span>·</span>
+            <span className="text-secondary/50" aria-hidden="true">·</span>
             <a
               href="https://www.linkedin.com/in/sreerag-pp-42a8b13a3"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="inline-flex items-center min-h-[44px] min-w-[44px] justify-center px-2 hover:text-primary transition-colors"
             >
               LinkedIn
             </a>
-            <span>·</span>
+            <span className="text-secondary/50" aria-hidden="true">·</span>
             <a
               href="mailto:sreeragpp81@gmail.com"
-              className="hover:text-primary transition-colors"
+              className="inline-flex items-center min-h-[44px] min-w-[44px] justify-center px-2 hover:text-primary transition-colors"
             >
               Email
             </a>
