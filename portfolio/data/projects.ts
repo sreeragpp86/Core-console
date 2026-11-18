@@ -70,20 +70,22 @@ export const PROJECTS: Project[] = [
     liveUrl: undefined,
   },
   {
-    id: "profezrs-blog",
-    title: "Profezr's Blog (Study Hub Kerala)",
-    badge: "Full-Stack EdTech",
-    period: "April 2026",
+    id: "vectra-labs",
+    title: "Vectra Labs",
+    badge: "Full-Stack LMS · Infocyle",
+    period: "2026 – Present",
     shortDesc:
-      "A full-stack educational platform hosting and distributing academic study materials for undergraduate students with secure authentication and relational metadata indexing.",
+      "Architected and developed the core web-based LMS for Infocyle, handling relational PostgreSQL schemas, role-based access control, real-time student engagement telemetry, and low-latency content delivery.",
     fullDesc:
-      "Full-stack academic resource platform for undergraduate students in Kerala with secure authentication and relational indexing.",
-    tags: ["Next.js", "FastAPI", "Supabase"],
-    stack: ["Next.js", "FastAPI", "Supabase"],
+      "Full-Stack Learning Management & Cohort Analytics Platform — engineered as Co-Founder & CTO at Infocyle.",
+    tags: ["Next.js", "TypeScript", "FastAPI", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    stack: ["Next.js", "TypeScript", "FastAPI", "Supabase", "PostgreSQL", "Tailwind CSS"],
     highlights: [
-      "Engineered a full-stack educational platform hosting and distributing academic study materials for undergraduate students with secure authentication and relational metadata indexing.",
+      "Designed multi-tenant relational schemas and REST/WebSocket APIs using FastAPI and Supabase.",
+      "Integrated real-time student cohort tracking and automated media processing workflows for scalable course delivery.",
+      "Built a responsive, theme-adaptive Next.js interface with modular dashboard components.",
     ],
-    githubUrl: "https://github.com/sreeragpp86/Profzr-s-Academy",
-    liveUrl: undefined,
+    githubUrl: "https://github.com/sreeragpp86",
+    liveUrl: "https://vectralabs.vercel.app",
   },
 ];

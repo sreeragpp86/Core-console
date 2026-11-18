@@ -24,7 +24,7 @@ Minimalist developer portfolio engineered around an **Onyx & Alabaster** DevTool
 * **[FluxMedia](https://github.com/sreeragpp86/FluxMedia)** — *Distributed Media Processing Task Queue* (`FastAPI`, `Celery`, `Redis`, `FFmpeg`, `Supabase`)  
   Asynchronous media transcoding pipeline decoupling CPU-bound H.264/HEVC compression (`VideoToolbox`) from main API threads via isolated Celery workers.
 
-* **[Vectra Labs (Infocyle)](https://github.com/sreeragpp86)** — *Full-Stack Learning Management Platform* (`Next.js`, `FastAPI`, `Supabase`)  
+* **[Vectra Labs (Infocyle)](https://vectralabs.vercel.app)** — *Full-Stack Learning Management & Cohort Analytics Platform* (`Next.js`, `TypeScript`, `FastAPI`, `Supabase`, `PostgreSQL`)  
   Core web LMS and cohort analytics infrastructure engineered as Co-Founder & CTO.
 
 ---
