@@ -7,6 +7,8 @@ import {
   Download,
   ArrowLeft,
   Mail,
+  Phone,
+  Globe,
   Linkedin,
   Github,
   Briefcase,
@@ -16,25 +18,51 @@ import {
   Terminal,
   Calendar,
   Award,
+  ExternalLink,
 } from "lucide-react";
 import { PROJECTS } from "@/data/projects";
 
 const TECHNICAL_SKILLS = [
   {
     category: "Languages",
-    skills: ["Python", "JavaScript", "TypeScript", "C", "C++", "SQL", "HTML/CSS"],
+    skills: ["Python", "TypeScript", "JavaScript (ES6+)", "C", "C++", "SQL", "HTML5/CSS3"],
   },
   {
-    category: "Backend & Infra",
-    skills: ["FastAPI", "Redis", "Celery", "Django", "Supabase", "PostgreSQL", "REST APIs"],
+    category: "Backend & Systems",
+    skills: [
+      "FastAPI",
+      "Django",
+      "WebSockets",
+      "Server-Sent Events (SSE)",
+      "Celery",
+      "Redis (Pub/Sub)",
+      "asyncio",
+      "REST APIs",
+    ],
   },
   {
     category: "Frontend",
-    skills: ["Next.js (App Router)", "React", "Tailwind CSS", "Framer Motion"],
+    skills: [
+      "Next.js (App Router)",
+      "React",
+      "React Flow",
+      "Tailwind CSS",
+      "Zustand",
+      "Recharts",
+      "Framer Motion",
+    ],
   },
   {
-    category: "Tools & Systems",
-    skills: ["Linux", "Git/GitHub", "FFmpeg (Video Toolbox)", "Docker", "Generative AI Workflows"],
+    category: "Databases & Tools",
+    skills: [
+      "PostgreSQL",
+      "Supabase",
+      "SQLite",
+      "FFmpeg (VideoToolbox)",
+      "Git/GitHub",
+      "Linux/macOS CLI",
+      "Generative AI Workflows",
+    ],
   },
 ];
 
@@ -42,28 +70,27 @@ const EXPERIENCES = [
   {
     role: "Chief Technology Officer & Co-Founder",
     company: "Infocyle",
-    type: "Full-Time · Venture",
+    type: "Kochi, Kerala · EdTech Venture",
     period: "July 2026 – Present",
     status: "Current",
     highlights: [
-      "Direct the technical strategy, architecture, and product roadmap for an educational technology startup.",
-      "Architected and developed Vectra Labs, the core web-based LMS, handling database schemas, backend API routing, and frontend component design.",
-      "Authored formal technical incubation proposals and curriculum structures for institutional review.",
-      "Designed a 5-day syllabus to teach practical AI tools and generative workflows to beginners.",
+      "Direct technical strategy, system architecture, and product roadmap for an educational technology venture.",
+      "Architected and developed Vectra Labs, the core web-based LMS, managing relational database schemas, backend API routing, and frontend component design.",
+      "Authored technical incubation proposals and designed a structured 5-day curriculum teaching practical AI tools and generative workflows.",
     ],
-    tech: ["Next.js", "FastAPI", "PostgreSQL", "System Architecture", "GenAI Workflows"],
+    tech: ["Next.js", "FastAPI", "PostgreSQL", "System Architecture", "AI Workflows"],
   },
   {
     role: "Software Engineer",
     company: "Freelance Full-Stack Developer",
-    type: "Independent Client Engineering",
+    type: "Kochi, Kerala · Independent Client Engineering",
     period: "Oct. 2025 – Present",
     status: "Active",
     highlights: [
-      "Engineer custom, responsive web applications for clients, managing the full software development lifecycle from UI/UX design to backend deployment.",
-      "Build high-performance interfaces using Next.js and Tailwind CSS, focusing on minimal, fluid micro-interactions and strict grid architectures.",
+      "Engineer custom, responsive web applications for clients, managing the full software development lifecycle from UI/UX design to cloud deployment.",
+      "Build high-performance interfaces using Next.js and Tailwind CSS, focusing on minimal micro-interactions and strict grid architectures.",
     ],
-    tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "TypeScript", "REST APIs"],
+    tech: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "REST APIs"],
   },
 ];
 
@@ -139,8 +166,9 @@ export default function ResumePage() {
             </div>
 
             <p className="max-w-2xl text-sm sm:text-base leading-relaxed text-secondary/90">
-              Specialized in architecting asynchronous distributed pipelines, fault-tolerant backends
-              with Python and FastAPI, and fluid, high-performance interfaces with Next.js and Tailwind CSS.
+              Specialized in architecting real-time telemetry engines, DAG AI workflow orchestrators,
+              asynchronous distributed pipelines with Python and FastAPI, and high-performance interfaces
+              with Next.js and Tailwind CSS.
             </p>
           </div>
         </motion.div>
@@ -165,7 +193,18 @@ export default function ResumePage() {
                 <span>Contact &amp; Profiles</span>
               </div>
 
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a
+                    href="tel:+918606868006"
+                    className="group flex items-center justify-between rounded-lg p-2.5 transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+                  >
+                    <span className="flex items-center gap-3 text-secondary group-hover:text-primary transition-colors">
+                      <Phone className="h-4 w-4 text-emerald-500 shrink-0" />
+                      <span className="font-mono text-xs">+91 8606868006</span>
+                    </span>
+                  </a>
+                </li>
                 <li>
                   <a
                     href="mailto:sreeragpp81@gmail.com"
@@ -200,6 +239,19 @@ export default function ResumePage() {
                     <span className="flex items-center gap-3 text-secondary group-hover:text-primary transition-colors">
                       <Github className="h-4 w-4 text-primary shrink-0" />
                       <span className="font-mono text-xs">github.com/sreeragpp86</span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://sreerag-dev.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between rounded-lg p-2.5 transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+                  >
+                    <span className="flex items-center gap-3 text-secondary group-hover:text-primary transition-colors">
+                      <Globe className="h-4 w-4 text-accent-primary shrink-0" />
+                      <span className="font-mono text-xs">sreerag.dev</span>
                     </span>
                   </a>
                 </li>
@@ -274,27 +326,36 @@ export default function ResumePage() {
                   <p className="mt-1 text-xs text-secondary font-medium">
                     Bachelor of Science in Computer Science
                   </p>
-                  <div className="mt-2 flex items-center gap-2 font-mono text-[11px] text-secondary">
+                  <p className="mt-0.5 text-[11px] text-secondary/80">
+                    Affiliated with Mahatma Gandhi University
+                  </p>
+                  <div className="mt-2.5 flex flex-wrap items-center gap-2 font-mono text-[11px] text-secondary">
                     <span
                       data-neu-inset=""
                       className="inline-block rounded px-2 py-0.5 text-[10px]"
                     >
                       Kochi, Kerala
                     </span>
+                    <span
+                      data-neu-inset=""
+                      className="inline-block rounded px-2 py-0.5 text-[10px] text-primary font-semibold"
+                    >
+                      Expected Graduation: 2028
+                    </span>
                   </div>
                 </div>
 
                 <div className="rounded-xl border border-black/5 bg-black/[0.02] p-3.5 dark:border-white/5 dark:bg-white/[0.02]">
                   <div className="flex items-center gap-2 font-mono text-xs font-semibold text-primary">
-                    <Award className="h-3.5 w-3.5 text-amber-500" />
-                    <span>Leadership Milestone</span>
+                    <Award className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                    <span>Leadership · IEDC</span>
                   </div>
                   <p className="mt-1.5 text-xs text-secondary leading-relaxed">
-                    Lead Organizer for a 24-hour undergraduate campus hackathon{" "}
-                    <span className="font-mono text-[11px] font-semibold text-primary">
-                      (March 2026)
-                    </span>
-                    . Orchestrated challenges, mentorship tracks, and participant infrastructure.
+                    Student Lead for the{" "}
+                    <span className="font-semibold text-primary">
+                      Innovation and Entrepreneurship Development Centre (IEDC)
+                    </span>{" "}
+                    campus chapter.
                   </p>
                 </div>
               </div>
@@ -428,7 +489,7 @@ export default function ResumePage() {
                       Featured Engineering Projects
                     </h2>
                     <p className="text-xs sm:text-sm text-secondary">
-                      Distributed asynchronous pipelines, modular tools, and web systems
+                      Real-time telemetry engines, DAG AI orchestrators, distributed task queues, and EdTech platforms
                     </p>
                   </div>
                 </div>
@@ -472,17 +533,45 @@ export default function ResumePage() {
                         </p>
                       </div>
 
-                      {proj.period && (
-                        <div className="flex items-center gap-2 font-mono text-xs shrink-0">
-                          <Calendar className="h-3.5 w-3.5 text-secondary" />
-                          <span
+                      <div className="flex items-center gap-2 font-mono text-xs shrink-0">
+                        {proj.githubUrl && (
+                          <a
+                            href={proj.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${proj.title} GitHub repository`}
+                            title="View on GitHub"
                             data-neu-inset=""
-                            className="rounded-md px-2.5 py-1 text-primary font-semibold text-xs"
+                            className="inline-flex h-7 w-7 items-center justify-center rounded-md text-secondary hover:text-primary transition-colors"
                           >
-                            {proj.period}
-                          </span>
-                        </div>
-                      )}
+                            <Github className="h-3.5 w-3.5" />
+                          </a>
+                        )}
+                        {proj.liveUrl && (
+                          <a
+                            href={proj.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${proj.title} live site`}
+                            title="Visit Live Site"
+                            data-neu-inset=""
+                            className="inline-flex h-7 w-7 items-center justify-center rounded-md text-secondary hover:text-accent-primary transition-colors"
+                          >
+                            <ExternalLink className="h-3.5 w-3.5" />
+                          </a>
+                        )}
+                        {proj.period && (
+                          <div className="flex items-center gap-2">
+                            <Calendar className="h-3.5 w-3.5 text-secondary" />
+                            <span
+                              data-neu-inset=""
+                              className="rounded-md px-2.5 py-1 text-primary font-semibold text-xs"
+                            >
+                              {proj.period}
+                            </span>
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     {/* Detailed Technical Bullet Points */}
@@ -560,7 +649,7 @@ export default function ResumePage() {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>$ cat sreerag_cv.json</span>
             <span className="text-secondary/50 hidden xs:inline" aria-hidden="true">·</span>
-            <span>$ last_updated --Oct_2026</span>
+            <span>$ last_updated --Nov_2026</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
             <a

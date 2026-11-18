@@ -14,84 +14,76 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    id: "pulse",
+    title: "Pulse",
+    badge: "Real-Time Telemetry Engine",
+    period: "Nov. 2026",
+    shortDesc:
+      "A real-time educational telemetry engine handling 500+ concurrent student event streams over dual-path WebSockets, Redis Pub/Sub fan-out, and batched PostgreSQL writes cutting DB overhead by >98%.",
+    fullDesc:
+      "Real-Time Educational Telemetry Engine — dual-path WebSocket ingestion gateway, write-behind PostgreSQL batching, and bounded-memory Next.js observability console.",
+    tags: ["FastAPI", "WebSockets", "PostgreSQL", "Redis", "Next.js"],
+    stack: ["FastAPI", "WebSockets", "PostgreSQL", "Redis (Pub/Sub)", "asyncio", "Next.js"],
+    highlights: [
+      "Engineered a dual-path WebSocket telemetry ingestion gateway capable of handling 500+ concurrent virtual student event streams with sub-second dashboard fan-out over Redis Pub/Sub.",
+      "Implemented an asynchronous write-behind memory buffer (asyncio.Queue) that batches high-frequency events into bulk PostgreSQL transactions every 2.0s, cutting database write overhead by >98%.",
+      "Designed composite-indexed time-series schemas (course_id, created_at DESC) and built a Next.js observability console with a bounded 60-frame client ring buffer to prevent browser memory leaks.",
+    ],
+    githubUrl: "https://github.com/sreeragpp86/Pulse",
+    liveUrl: undefined,
+  },
+  {
+    id: "conduit",
+    title: "Conduit",
+    badge: "DAG AI Workflow Orchestrator",
+    period: "Nov. 2026",
+    shortDesc:
+      "A spatial node-based AI workflow builder on React Flow powered by a FastAPI Kahn's Topological Sort engine (O(V + E)) and real-time Server-Sent Events streaming per-node LLM latency telemetry.",
+    fullDesc:
+      "DAG AI Workflow Orchestrator — spatial node-based pipeline builder with cycle-safe topological execution and live SSE inference streaming.",
+    tags: ["Next.js", "React Flow", "FastAPI", "Python", "SSE", "Zustand"],
+    stack: ["Next.js", "React Flow", "FastAPI", "Python", "SSE", "Zustand"],
+    highlights: [
+      "Architected a spatial node-based AI workflow builder allowing users to wire multi-step prompt, LLM inference, and media nodes into automated execution pipelines on an interactive React Flow canvas.",
+      "Built a FastAPI execution engine utilizing Kahn's Topological Sort Algorithm (O(V + E)) to resolve multi-parent dependencies and block circular graph loops prior to compute execution.",
+      "Integrated real-time Server-Sent Events (SSE) and async httpx inference handlers (Groq / Gemini) to stream per-node status updates and millisecond latency telemetry directly to the UI.",
+    ],
+    githubUrl: "https://github.com/sreeragpp86/Conduit",
+    liveUrl: undefined,
+  },
+  {
     id: "fluxmedia",
     title: "FluxMedia",
-    badge: "Distributed Pipeline",
-    period: "Oct. 2026 – Present",
+    badge: "Distributed Media Queue",
+    period: "Oct. 2026",
     shortDesc:
-      "A fault-tolerant distributed media processing pipeline and task queue. Built with FastAPI, Celery, and Redis to asynchronously transcode and compress heavy video workloads via FFmpeg.",
+      "A distributed media processing task queue decoupling CPU-intensive video transcoding via FastAPI, Redis, isolated Celery workers, and hardware-accelerated FFmpeg (h264_videotoolbox) with Supabase persistence.",
     fullDesc:
-      "Fault-tolerant, asynchronous distributed media processing pipeline engineered to decouple high-load CPU workloads from the main web server.",
-    tags: ["FastAPI", "Celery", "Redis", "FFmpeg", "Next.js 14"],
-    stack: ["Python", "FastAPI", "Redis", "Celery", "FFmpeg", "Next.js"],
+      "Distributed Media Processing Task Queue — asynchronous video transcoding pipeline backed by FastAPI, Redis, Celery workers, hardware-accelerated FFmpeg, and Supabase PostgreSQL.",
+    tags: ["FastAPI", "Celery", "Redis", "FFmpeg", "Supabase"],
+    stack: ["FastAPI", "Celery", "Redis", "FFmpeg (VideoToolbox)", "Supabase"],
     highlights: [
-      "Architected a fault-tolerant, asynchronous media processing pipeline to decouple heavy CPU workloads from the main web server.",
-      "Engineered a RESTful API with FastAPI to ingest large media files and dispatch processing tickets to a Redis message broker.",
-      "Developed background Celery worker nodes to pull tasks and execute hardware-accelerated H.264 video compression utilizing macOS VideoToolbox.",
-      "Built real-time status-tracking endpoints allowing Next.js frontends to poll continuous job states without blocking the event loop.",
+      "Decoupled CPU-intensive video transcoding from main API threads by engineering an asynchronous task queue backed by FastAPI, Redis message brokers, and isolated Celery worker nodes.",
+      "Accelerated H.264/HEVC video compression pipelines using hardware-accelerated FFmpeg (h264_videotoolbox) and persisted job lifecycle states in Supabase PostgreSQL.",
     ],
     githubUrl: "https://github.com/sreeragpp86/FluxMedia",
     liveUrl: undefined,
   },
   {
-    id: "profzr-academy",
-    // Conflict 1: "Profzr's Academy" (portfolio) vs "Profezr's Blog" (resume)
-    title: "Profzr's Academy", // TODO: confirm title - "Profzr's Academy" vs "Profezr's Blog"
+    id: "profezrs-blog",
+    title: "Profezr's Blog (Study Hub Kerala)",
     badge: "Full-Stack EdTech",
     period: "April 2026",
-    // Conflict 2: Django & Kerala Syllabus vs Next.js/FastAPI & Undergraduate Blog
     shortDesc:
-      "A full-stack educational web platform delivering chapter-wise academic modules, dynamic PDF resources, and subject-specific learning schemes. [TODO: confirm description]",
+      "A full-stack educational platform hosting and distributing academic study materials for undergraduate students with secure authentication and relational metadata indexing.",
     fullDesc:
-      "Responsive, full-stack educational web platform dedicated to hosting, organizing, and distributing academic materials for undergraduate students. [TODO: confirm description]",
-    // Conflict 3: Stack ["Python", "Django", "JavaScript", "SQLite"] vs ["Next.js", "FastAPI", "Supabase", "PostgreSQL", "Tailwind CSS"]
-    tags: ["Python", "Django", "JavaScript", "SQLite"], // TODO: confirm stack
-    stack: ["Next.js", "FastAPI", "Supabase", "PostgreSQL", "Tailwind CSS"], // TODO: confirm stack
+      "Full-stack academic resource platform for undergraduate students in Kerala with secure authentication and relational indexing.",
+    tags: ["Next.js", "FastAPI", "Supabase"],
+    stack: ["Next.js", "FastAPI", "Supabase"],
     highlights: [
-      "Engineered a responsive, full-stack educational web application dedicated to hosting and distributing academic materials. [TODO: confirm highlights]",
-      "Integrated secure authentication workflows and database models to manage user sessions, document metadata, and fast content retrieval.",
+      "Engineered a full-stack educational platform hosting and distributing academic study materials for undergraduate students with secure authentication and relational metadata indexing.",
     ],
     githubUrl: "https://github.com/sreeragpp86/Profzr-s-Academy",
     liveUrl: undefined,
-  },
-  {
-    id: "loomo",
-    title: "Loomo",
-    // Conflict 4: "AI Micro-SaaS" (portfolio) vs "Workflow Engine" (resume)
-    badge: "AI Micro-SaaS", // TODO: confirm badge - "AI Micro-SaaS" vs "Workflow Engine"
-    period: "Early 2026",
-    // Conflict 5: Storefront generator with WhatsApp checkout vs Modular Python execution engine
-    // Trimmed to 3-4 lines as requested in Item 8:
-    shortDesc:
-      "An AI-driven micro-SaaS that generates live mobile storefronts and marketing assets from a single prompt, featuring zero-backend WhatsApp checkout. [TODO: confirm description]",
-    fullDesc:
-      "Modular Python execution engine designed to automate complex multi-stage generative media workflows with isolated environment runtimes. [TODO: confirm description]",
-    // Conflict 6: ["Next.js 15", "Supabase", "Google Gemini"] vs ["Python", "CLI Architecture", "Virtual Environments", "AI Orchestration"]
-    tags: ["Next.js 15", "Supabase", "Google Gemini"], // TODO: confirm stack
-    stack: ["Python", "CLI Architecture", "Virtual Environments", "AI Orchestration"], // TODO: confirm stack
-    highlights: [
-      "Developed a modular Python execution engine designed to automate complex generative media workflows. [TODO: confirm highlights]",
-      "Configured isolated virtual environments and custom scripting to sequence AI generation tools, handling prompt parsing and output rendering.",
-    ],
-    githubUrl: undefined, // TODO: confirm GitHub URL (hidden when undefined)
-    liveUrl: undefined, // TODO: confirm live site URL (hidden when undefined)
-  },
-  {
-    id: "core-console",
-    title: "Core-console",
-    badge: "Personal Architecture",
-    period: "2026",
-    shortDesc:
-      "Personal engineering showcase and portfolio platform. Developed with Next.js 14 App Router, TypeScript, Tailwind CSS, Framer Motion springs, and a tactile Soft UI design system.",
-    fullDesc:
-      "Personal engineering showcase and portfolio platform. Developed with Next.js 14 App Router, TypeScript, Tailwind CSS, Framer Motion springs, and a tactile Soft UI design system.",
-    tags: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    stack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    highlights: [
-      "Engineered an ultra-fast developer portfolio using Next.js 14 App Router and TypeScript with fluid Soft UI aesthetic.",
-      "Implemented physics-based gesture interactions, speed-linked scroll kinematics, and full accessible keyboard navigation.",
-    ],
-    githubUrl: "https://github.com/sreeragpp86/Core-console",
-    liveUrl: "https://sreerag-dev.vercel.app",
   },
 ];

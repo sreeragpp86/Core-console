@@ -216,9 +216,9 @@ export default function Home() {
               About
             </div>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-primary/90">
-              As CTO at Infocyle, I lead the intersection of scalable backend architecture
-              and intuitive frontend design. I specialize in building systems that are
-              not just functional, but elegant and maintainable.
+              As CTO &amp; Co-Founder at Infocyle and Student Lead at IEDC, I lead the intersection
+              of real-time distributed backend architecture and intuitive frontend design — building
+              Vectra Labs, telemetry pipelines, and AI workflow engines.
             </p>
           </SpotlightCard>
 
@@ -244,7 +244,9 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-base sm:text-lg text-primary">Stack</h3>
             </div>
-            <p className="text-xs sm:text-sm text-secondary leading-relaxed">FastAPI • Python • Next.js • TypeScript • Celery • Redis</p>
+            <p className="text-xs sm:text-sm text-secondary leading-relaxed">
+              FastAPI • Python • Next.js • TypeScript • PostgreSQL • Redis • WebSockets • Celery
+            </p>
           </SpotlightCard>
 
           {/* Focus Area Tile 1 */}
@@ -267,9 +269,11 @@ export default function Home() {
               <div data-neu-inset="" className="p-2 rounded-xl bg-accent-secondary/10 text-accent-secondary shrink-0">
                 <Rocket className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-base sm:text-lg text-primary">Distributed Systems</h3>
+              <h3 className="font-bold text-base sm:text-lg text-primary">Real-Time &amp; Distributed</h3>
             </div>
-            <p className="text-xs sm:text-sm text-secondary leading-relaxed">Async task queues, Redis &amp; FFmpeg pipelines</p>
+            <p className="text-xs sm:text-sm text-secondary leading-relaxed">
+              WebSockets, Redis Pub/Sub, DAG orchestration &amp; async FFmpeg pipelines
+            </p>
           </SpotlightCard>
 
           {/* Focus Area Tile 2 */}
@@ -334,14 +338,24 @@ export default function Home() {
                 onClick={() => {
                   if (exploreUrl) window.open(exploreUrl, "_blank", "noopener,noreferrer");
                 }}
-                className="relative md:sticky md:[top:var(--card-top)] group cursor-pointer bg-surface/95 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-shadow p-5 sm:p-6 md:p-8 pb-8 sm:pb-6 md:pb-8"
+                className={`relative md:sticky md:[top:var(--card-top)] group ${exploreUrl ? "cursor-pointer" : "cursor-default"} bg-surface/95 backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-xl dark:shadow-2xl dark:shadow-black/50 transition-shadow p-5 sm:p-6 md:p-8 pb-8 sm:pb-6 md:pb-8`}
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6">
                   <div className="space-y-3 sm:space-y-4 max-w-2xl">
-                    <div className="flex items-center gap-2.5 sm:gap-3">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                       <span data-neu-inset="" className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-accent-primary/10 text-accent-primary">
                         0{i + 1}
                       </span>
+                      {project.badge && (
+                        <span data-neu-inset="" className="font-mono text-[11px] font-semibold px-2.5 py-1 rounded-md text-emerald-600 dark:text-emerald-400">
+                          {project.badge}
+                        </span>
+                      )}
+                      {project.period && (
+                        <span className="font-mono text-xs text-secondary">
+                          {project.period}
+                        </span>
+                      )}
                       {project.liveUrl && (
                         <a
                           href={project.liveUrl}
@@ -413,7 +427,7 @@ export default function Home() {
           <div className="space-y-2.5 sm:space-y-3 max-w-xl">
             <h3 className="text-xl sm:text-2xl font-bold text-primary">Let's build something exceptional.</h3>
             <p className="text-sm sm:text-base text-secondary leading-relaxed">
-              Whether you need scalable backend architecture, GenAI workflows, or engineering leadership for your venture, my inbox is always open.
+              Whether you need real-time backend architecture, AI workflow orchestration, or engineering leadership for your venture, my inbox is always open.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
@@ -442,7 +456,7 @@ export default function Home() {
               <span className="text-accent-primary font-bold">$</span> location --kerala, india
             </p>
             <p className="text-secondary">
-              <span className="text-accent-primary font-bold">$</span> last_updated --Oct_2026
+              <span className="text-accent-primary font-bold">$</span> last_updated --Nov_2026
             </p>
           </div>
 
