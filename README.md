@@ -1,15 +1,15 @@
 # sreerag.dev
 
-**Personal Engineering Portfolio & Interactive Systems Index**
+**Personal Engineering Portfolio & Systems Index**
 
-[![Live Site](https://img.shields.io/badge/Live_Deployment-sreerag--dev.vercel.app-10B981?style=flat-square)](https://sreerag-dev.vercel.app)
-[![Framework](https://img.shields.io/badge/Next.js-App_Router-000000?style=flat-square)](https://nextjs.org/)
-[![Styling](https://img.shields.io/badge/Tailwind_CSS-Onyx_%26_Alabaster-09090B?style=flat-square)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-white?style=flat-square)](LICENSE)
+[![Live Site](https://img.shields.io/badge/Live_Deployment-sreerag--dev.vercel.app-6366F1?style=flat-square)](https://sreerag-dev.vercel.app)
+[![Framework](https://img.shields.io/badge/Next.js-App_Router-0F111A?style=flat-square)](https://nextjs.org/)
+[![Styling](https://img.shields.io/badge/Theme-Midnight_Indigo_%26_Tactile_UI-6366F1?style=flat-square)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-E4E4E7?style=flat-square)](LICENSE)
 
-Minimalist developer portfolio engineered around an **Onyx & Alabaster** DevTool aesthetic (`#09090B` obsidian surfaces, crisp `1px` structural borders, high-contrast `tabular-nums` monospace metadata, and zero marketing bloat). Built to serve as a fast, interactive index for my backend systems, distributed infrastructure projects, and compiled LaTeX resume.
+Personal developer portfolio featuring a **deep cosmic midnight palette** (`#0B0D14` base canvas with subtle ambient starfield/nebula gradients), **soft glowing indigo-violet accents** (`#6366F1`), **tactile pill controls**, and seamless **Light/Dark mode switching**[span_2](start_span)[span_2](end_span). Built to showcase my full-stack systems engineering, distributed infrastructure projects, and compiled LaTeX resume[span_3](start_span)[span_3](end_span).
 
-**Live Production URL:** [sreerag-dev.vercel.app](https://sreerag-dev.vercel.app)
+**Live Production URL:** [sreerag-dev.vercel.app](https://sreerag-dev.vercel.app)[span_4](start_span)[span_4](end_span)
 
 ---
 
@@ -25,15 +25,15 @@ Minimalist developer portfolio engineered around an **Onyx & Alabaster** DevTool
   Asynchronous media transcoding pipeline decoupling CPU-bound H.264/HEVC compression (`VideoToolbox`) from main API threads via isolated Celery workers.
 
 * **[Vectra Labs (Infocyle)](https://github.com/sreeragpp86)** — *Full-Stack Learning Management Platform* (`Next.js`, `FastAPI`, `Supabase`)  
-  Core web LMS and cohort analytics infrastructure engineered as Co-Founder & CTO.
+  Core web LMS and cohort analytics infrastructure engineered as Co-Founder & CTO[span_5](start_span)[span_5](end_span)[span_6](start_span)[span_6](end_span).
 
 ---
 
-## Architecture & Design Decisions
+## Visual Aesthetic & Architecture
 
-* **Zero-Clutter Spatial Hierarchy:** Built with Next.js (App Router), TypeScript, and Tailwind CSS using strict Bento-grid geometry and subtle `1px` border illumination (`border-white/10` $\rightarrow$ `border-white/25`) rather than heavy drop shadows.
-* **Keyboard-First Navigation:** Includes a `⌘K` Command Palette for instant navigation across projects, external GitHub repositories, direct email copy, and PDF resume download.
-* **Performance & Accessibility:** Static-first edge rendering on Vercel with semantic HTML landmarks, skip-to-content navigation, and zero third-party tracking scripts.
+* **Cosmic Midnight & Tactile UI:** Layered deep slate/indigo surfaces paired with soft diffused indigo-violet primary CTAs, tactile dark secondary buttons, and subtle ambient background texture[span_7](start_span)[span_7](end_span).
+* **Adaptive Theme System:** Built-in Light and Dark theme toggle in the top navigation bar alongside clean section anchors (`About`, `Projects`, `Contact`, `Resume`)[span_8](start_span)[span_8](end_span).
+* **Edge Performance:** Deployed on Vercel with Next.js (App Router), TypeScript, and Tailwind CSS for fast initial page loads and responsive layout scaling across desktop and mobile viewports.
 
 ---
 
@@ -56,7 +56,7 @@ Open `http://localhost:3000` in your browser.
 
 ## Connect
 
-* **Portfolio:** [sreerag-dev.vercel.app](https://sreerag-dev.vercel.app)
-* **GitHub:** [github.com/sreeragpp86](https://github.com/sreeragpp86)
-* **LinkedIn:** [linkedin.com/in/sreerag-pp-42a8b13a3](https://linkedin.com/in/sreerag-pp-42a8b13a3)
-* **Email:** [sreeragpp81@gmail.com](mailto:sreeragpp81@gmail.com)
+* **Portfolio:** [sreerag-dev.vercel.app](https://sreerag-dev.vercel.app)[span_9](start_span)[span_9](end_span)
+* **GitHub:** [github.com/sreeragpp86](https://github.com/sreeragpp86)[span_10](start_span)[span_10](end_span)
+* **LinkedIn:** [linkedin.com/in/sreerag-pp-42a8b13a3](https://linkedin.com/in/sreerag-pp-42a8b13a3)[span_11](start_span)[span_11](end_span)
+* **Email:** [sreeragpp81@gmail.com](mailto:sreeragpp81@gmail.com)[span_12](start_span)[span_12](end_span)
